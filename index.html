@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Speck Academy 2023</title>
+</head>
+<body>
+    <div class="content">
+        <h1>My Technologies</h1>
+
+        <input type="text" id = "search" placeholder="Enter new technology..." required>
+
+        <button type="button" id="button1">Add</button>
+        
+        <a href="" id="remove" onclick="resetAllItems()">Remove all items</a>
+    </div>
+   
+    <div id="newTextArea" class="grid"></div>
+    
+    <script>
+        const txt1 = document.getElementById("search");
+        const deleting = document.getElementById("remove");
+        const btn1 = document.getElementById("button1");
+        var input = document.getElementById("search");
+        var clicked = false;
+      
+        input.addEventListener("keypress", function(event) { //klikanje enter-a za input field
+            if (event.key === "Enter") {
+                event.preventDefault();
+                document.getElementById("button1").click();
+            }
+        }); 
+                
+        btn1.addEventListener('click', function (){
+            const newElement = document.createElement("p"); //kreiranje novog elementa
+            newElement.append(txt1.value); //dodavljanje vrijednosti novom elementu
+            document.getElementById("newTextArea").append(newElement); //pozicioniranje elementa
+        });
+
+        function resetAllItems(){ //ako kliknemo na Reset all items vraca true
+            deleting.addEventListener('click', function handleClick() {
+                console.log('element clicked'); //provjera na console logu
+                clicked = true;
+                });
+        }
+
+        function removing() { // Removaju se sva djeca div elementa
+            const element = document.getElementById("newTextArea");
+            while (list.hasChildNodes()) {
+                list.removeChild(list.firstChild);
+            }
+        }
+
+        if(clicked){ //remova sve ako je clicked true
+          removing();
+        }
+    </script>
+</body>
+</html>
